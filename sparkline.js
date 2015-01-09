@@ -9,12 +9,14 @@ module.exports = function(canvas_id, data, endpoint, color, style) {
 			total = data.length,
 			max = Math.max.apply(Math, data),
 			xstep = width/total,
-			ystep = max/height,
+			ystep = ((max+(max/10))/height),
 			x = 0,
 			y = height - data[0]/ystep,
 			i;
+		c.width = c.width;
 		ctx.beginPath();
 		ctx.strokeStyle = color;
+		ctx.lineWidth = 3;
 		ctx.moveTo(x, y);
 		for (i = 1; i < total; i = i + 1) {
 			x = x + xstep;
