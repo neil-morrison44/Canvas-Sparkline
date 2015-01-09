@@ -1,4 +1,4 @@
-var sparkline = function(canvas_id, data, endpoint, color, style) {
+module.exports = function(canvas_id, data, endpoint, color, style) {
 	if (window.HTMLCanvasElement) {
 		var c = document.getElementById(canvas_id),
 			ctx = c.getContext('2d'),
@@ -25,7 +25,7 @@ var sparkline = function(canvas_id, data, endpoint, color, style) {
 		ctx.stroke();
 		if (endpoint && style == 'line') {
 			ctx.beginPath();
-			ctx.fillStyle = 'rgba(255,0,0,0.5)';
+			ctx.fillStyle = color;
 			ctx.arc(x, y, 1.5, 0, Math.PI*2);
 			ctx.fill();
 		}
